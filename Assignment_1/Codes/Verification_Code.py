@@ -13,7 +13,7 @@ n=np.transpose(nT)
 
 #nTx=c line equation
 x=np.array([(1),(3)])
-mul=np.dot(nT,x)
+c=np.dot(nT,x)
 
 #expression of k
 k=(np.subtract(np.dot(nT,A),np.dot(nT,x)))/(np.subtract(np.dot(nT,x),np.dot(nT,B)))
