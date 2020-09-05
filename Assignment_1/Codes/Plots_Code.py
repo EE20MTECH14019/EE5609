@@ -10,7 +10,7 @@ fig = plt.figure()
 ax = fig.add_subplot(111,projection='3d')
 
 
-#Points on the plane
+#Points on the lines AB and CD
 A=np.array([-1,1]).reshape((2,1))
 B=np.array([5,7]).reshape((2,1))
 C=np.array([10,-6]).reshape((2,1))
@@ -21,11 +21,8 @@ x_AB = line_gen(A,B)
 x_CD = line_gen(C,D)
 
 #Plotting the lines
-
 plt.plot(x_AB[0,:],x_AB[1,:],label="AB")
-plt.plot(x_CD[0,:],x_CD[1,:],label="CD")
-
-
+plt.plot(x_CD[0,:],x_CD[1,:],label="[1 1]x=4")
 
 
 #intersection point
@@ -34,14 +31,8 @@ Q = np.array([[2], [4]])
 X=np.linalg.inv(P) @ Q
 
 #plotting point
-#ax.scatter(A[0],A[1],marker='o')
-#ax.scatter(B[0],B[1],marker='o')
-#ax.scatter(C[0],C[1],marker='o')
-#ax.scatter(D[0],D[1],marker='o')
 ax.scatter(X[0],X[1],marker='o')
 ax.text(1,3,0, "X(1,3,0)", color='red')
-
-
 
 #show plot
 plt.xlabel('$x$');plt.ylabel('$y$')
