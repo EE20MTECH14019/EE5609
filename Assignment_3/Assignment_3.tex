@@ -175,37 +175,71 @@ https://github.com/EE20MTECH14019/EE5609/tree/master/Assignment_3
 \section{Problem}
 \item Triangles on the same base (or equal bases) and having equal areas lie between the same parallels.
 \section{Explanation}
-\item Triangles $\triangle ABC$ and $\triangle ABD$ are two triangles lying on the same base AB such that area of $\triangle ABC$ is equal to area of $\triangle ABD$. Now we join $C$ and $D$ and and drop perpendiculars onto $AB$ from $C$ and $D$. Lets say the foot of the perpendiculars are $E$ and $F$.
-\item As $CE \perp AB$ and $DF \perp AB$, we can write that
+\item Consider $\vec{A},\vec{B},\vec{C}$ are three points of a triangle $\triangle ABC$, $\vec{D}, \vec{B}, \vec{C}$ are three points of another triangle $\triangle DBC$, both triangles having same base BC and $\vec{B}$ at origin, 
 \begin{align}
-    \label{eq1}
-    (\vec{C}-\vec{E})^T(\vec{A}-\vec{B})=0\\
-    \label{eq2}
-    (\vec{D}-\vec{F})^T(\vec{A}-\vec{B})=0
+    \label{1}
+    \vec{A}-\vec{B}=\vec{A}\\
+    \label{2}
+    \vec{C}-\vec{B}=\vec{C}\\
+    \label{3}
+    \vec{D}-\vec{B}=\vec{D}
 \end{align}
-\item From equations \eqref{eq1} and \eqref{eq2}
+\item The area of the triangle $\triangle ABC$ is,
 \begin{align}
-    \label{eq3}
-    (\vec{C}-\vec{E})=k(\vec{D}-\vec{F})
+    \label{4}
+    Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{A} - \vec{B}} \times (\vec{C} - \vec{B})}
 \end{align}
-\item Equation \eqref{eq3} shows that $CE \parallel DF$. Also given that 
+\item Substituting \eqref{1} and \eqref{2} in \eqref{4}, 
 \begin{align}
-    area(\triangle ABC)=area(\triangle ABD)\\
-    \implies \frac{1}{2}(\vec{AB} \times \vec{CA})=\frac{1}{2}(\vec{AB} \times \vec{BD})
+    \label{ABC}
+    \implies Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{A} \times \vec{C}}}
 \end{align}
-\item Using the triangle law of vectors,
+\item The area of the triangle $\triangle DBC$ is,
 \begin{align}
-    \implies (\vec{AB} \times (\vec{CE}+\vec{EA}))=(\vec{AB} \times (\vec{DF}+\vec{FB}))\\
-    \label{farea}
-    \implies (\vec{AB} \times \vec{CE})=(\vec{AB} \times \vec{DF})
+    \label{5}
+    Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{D} - \vec{B}} \times \brak{\vec{C} - \vec{B}}}
+\end{align}   
+\item Substituting \eqref{2} and \eqref{3} in \eqref{5}, 
+\begin{align}
+    \label{DBC}
+    \implies Area\brak{\triangle DBC} = \frac{1}{2}\norm{\brak{\vec{D} \times \vec{C}}}
 \end{align}
-\item From equation \eqref{farea}, $CE$=$DF$. 
-\item As $CE \parallel DF$ and $CE$=$DF$, we could say that CDEF forms a parallelogram. And $CD \parallel EF$ as $CD$ and $EF$ are opposite sides of the parallelogram CDEF. From this, we can conclude that $CD \parallel AB$.
-\item Hence $\triangle ABC$ and $\triangle ABD$ lie between the same parallels AB and CD.
-\begin{figure}[!ht]
+\item Given the area of $\triangle ABC$ is equal to the area $\triangle DBC$, from equations \eqref{ABC} and \eqref{DBC}
+\begin{align}
+    \label{modeq}
+    \frac{1}{2}\norm{\brak{\vec{A} \times \vec{C}}} = \frac{1}{2}\norm{\brak{\vec{D} \times \vec{C}}}
+\end{align}
+In the above equation \eqref{modeq}, the resultant cross product vectors of L.H.S and R.H.S are parallel. Also, as we assumed $\vec{B}$=0. We can write equation \eqref{modeq} as,
+\begin{align}
+    \vec{B} \times \brak{\vec{A} \times \vec{C}} = k \brak{\vec{B} \times \brak{\vec{D}\times \vec{C}}}
+\end{align}
+\begin{align}
+    \label{lbo}
+    \implies \vec{A}\brak{\vec{B} \cdot \vec{C}} - \vec{C}\brak{\vec{B} \cdot \vec{A}} = k\brak{\vec{D}\brak{\vec{B} \cdot \vec{C}}}-\vec{C}\brak{\vec{B} \cdot \vec{D}}
+\end{align}
+As the dot products results in scalars(constants), we can write the equation \eqref{lbo} as,
+\begin{align}
+    \label{lst}
+    \brak{\vec{A}-\vec{D}}=k_1\brak{\vec{B}-\vec{C}}
+\end{align}
+From the equation \eqref{lst}, we can say that $AD \parallel BC$. Hence the two triangles $\triangle ABC$ and $\triangle DBC$ lie between the same parallels AD and BC
+% figure
+\begin{figure}[!ht] \label{fig:triangle_abc}
 \centering
-\includegraphics[width=\columnwidth]{Parallelogram_1.png}
-\caption{Triangles of equal area and same base}
-\label{fig1}
-\end{figure}
+\begin{tikzpicture}
+\draw (-2,0) -- (6,0); 
+\draw (-2,4) -- (6,4);
+\filldraw[black] (0,0) circle (2pt) node[anchor=north] {$B (0,0)$};
+\filldraw[black] (2,4) circle (2pt) node[anchor=south] {$A (a_1,a_2)$};
+\filldraw[black] (4,0) circle (2pt) node[anchor=north] {$C (c_1,c_2)$};
+\filldraw[black] (5,4) circle (2pt) node[anchor=south] {$D (d_1,d_2)$};
+\draw[black,thick] (0,0) -- (2,4);
+\draw[black,thick] (4,0) -- (2,4);
+\draw[black,thick] (0,0) -- (5,4);
+\draw[black,thick] (4,0) -- (5,4);
+\draw[black] (4,0) -- (0,0);
+\end{tikzpicture}
+\caption{$\triangle ABC$ and $\triangle DBC$ with BC as common base}
+\label{fig:solutions/1/2/two}
+\end{figure} \\
 \end{document}
