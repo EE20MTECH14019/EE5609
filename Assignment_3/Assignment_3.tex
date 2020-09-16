@@ -187,7 +187,7 @@ https://github.com/EE20MTECH14019/EE5609/tree/master/Assignment_3
 \item The area of the triangle $\triangle ABC$ is,
 \begin{align}
     \label{4}
-    Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{A} - \vec{B}} \times (\vec{C} - \vec{B})}
+    Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{A} - \vec{B}} \times \brak{\vec{C} - \vec{B}}}
 \end{align}
 \item Substituting \eqref{1} and \eqref{2} in \eqref{4}, 
 \begin{align}
@@ -215,14 +215,14 @@ In the above equation \eqref{modeq}, the resultant cross product vectors of L.H.
 \end{align}
 \begin{align}
     \label{lbo}
-    \implies \vec{A}\brak{\vec{B} \cdot \vec{C}} - \vec{C}\brak{\vec{B} \cdot \vec{A}} = k\brak{\vec{D}\brak{\vec{B} \cdot \vec{C}}}-\vec{C}\brak{\vec{B} \cdot \vec{D}}
+    \implies \vec{A}\brak{\vec{B} ^T \vec{C}} - \vec{C}\brak{\vec{B} ^T \vec{A}} = k\brak{\vec{D}\brak{\vec{B} ^T \vec{C}}-\vec{C}\brak{\vec{B} ^T \vec{D}}}
 \end{align}
-As the dot products results in scalars(constants), we can write the equation \eqref{lbo} as,
+As we considered \vec{B} = 0 without the loss of generality, we can write \eqref{lbo} as,
 \begin{align}
     \label{lst}
     \brak{\vec{A}-\vec{D}}=k_1\brak{\vec{B}-\vec{C}}
 \end{align}
-From the equation \eqref{lst}, we can say that $AD \parallel BC$. Hence the two triangles $\triangle ABC$ and $\triangle DBC$ lie between the same parallels AD and BC
+where $k$ and $k_1$ are constants. From the equation \eqref{lst}, we can say that $AD \parallel BC$. Hence the two triangles $\triangle ABC$ and $\triangle DBC$ lie between the same parallels AD and BC
 % figure
 \begin{figure}[!ht] \label{fig:triangle_abc}
 \centering
