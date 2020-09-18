@@ -194,35 +194,6 @@ https://github.com/EE20MTECH14019/EE5609/tree/master/Assignment_3
     \label{ABC}
     \implies Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{A} \times \vec{C}}}
 \end{align}
-\item The area of the triangle $\triangle DBC$ is,
-\begin{align}
-    \label{5}
-    Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{D} - \vec{B}} \times \brak{\vec{C} - \vec{B}}}
-\end{align}   
-\item Substituting \eqref{2} and \eqref{3} in \eqref{5}, 
-\begin{align}
-    \label{DBC}
-    \implies Area\brak{\triangle DBC} = \frac{1}{2}\norm{\brak{\vec{D} \times \vec{C}}}
-\end{align}
-\item Given the area of $\triangle ABC$ is equal to the area $\triangle DBC$, from equations \eqref{ABC} and \eqref{DBC}
-\begin{align}
-    \label{modeq}
-    \frac{1}{2}\norm{\brak{\vec{A} \times \vec{C}}} = \frac{1}{2}\norm{\brak{\vec{D} \times \vec{C}}}
-\end{align}
-In the above equation \eqref{modeq}, the resultant cross product vectors of L.H.S and R.H.S are parallel. We can write equation \eqref{modeq} as,
-\begin{align}
-    \vec{B} \times \brak{\vec{A} \times \vec{C}} = k \brak{\vec{B} \times \brak{\vec{D}\times \vec{C}}}
-\end{align}
-\begin{align}
-    \label{lbo}
-    \implies \vec{A}\brak{\vec{B} ^T \vec{C}} - \vec{C}\brak{\vec{B} ^T \vec{A}} = k\brak{\vec{D}\brak{\vec{B} ^T \vec{C}}-\vec{C}\brak{\vec{B} ^T \vec{D}}}
-\end{align}
-As we considered $\vec{B}$ = 0 without the loss of generality, we can write \eqref{lbo} as,
-\begin{align}
-    \label{lst}
-    \brak{\vec{A}-\vec{D}}=k_1\brak{\vec{B}-\vec{C}}
-\end{align}
-where $k$ and $k_1$ are constants. From the equation \eqref{lst}, we can say that $AD \parallel BC$. Hence the two triangles $\triangle ABC$ and $\triangle DBC$ lie between the same parallels AD and BC
 % figure
 \begin{figure}[!ht] \label{fig:triangle_abc}
 \centering
@@ -241,5 +212,55 @@ where $k$ and $k_1$ are constants. From the equation \eqref{lst}, we can say tha
 \end{tikzpicture}
 \caption{$\triangle ABC$ and $\triangle DBC$ with BC as common base}
 \label{fig:solutions/1/2/two}
-\end{figure} \\
+\end{figure}
+\item The area of the triangle $\triangle DBC$ is,
+\begin{align}
+    \label{5}
+    Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{D} - \vec{B}} \times \brak{\vec{C} - \vec{B}}}
+\end{align}   
+\item Substituting \eqref{2} and \eqref{3} in \eqref{5}, 
+\begin{align}
+    \label{DBC}
+    \implies Area\brak{\triangle DBC} = \frac{1}{2}\norm{\brak{\vec{D} \times \vec{C}}}
+\end{align}
+\item Given the area of $\triangle ABC$ is equal to the area $\triangle DBC$, from equations \eqref{ABC} and \eqref{DBC}
+\begin{align}
+    \label{modeq}
+    \frac{1}{2}\norm{\brak{\vec{A} \times \vec{C}}} = \frac{1}{2}\norm{\brak{\vec{D} \times \vec{C}}}
+\end{align}
+Squaring on both sides of the equation \eqref{modeq}, we get
+\begin{align}
+    \norm{\brak{\vec{A} \times \vec{C}}}^2 = \norm{\brak{\vec{D} \times \vec{C}}}^2
+\end{align}
+\begin{equation}
+\begin{align}
+    \implies \brak{\vec{A}^T\vec{A}}\brak{\vec{C}^T\vec{C}} - \brak{\vec{A}^T\vec{C}}\brak{\vec{C}^T\vec{A}} =\\ \brak{\vec{D}^T\vec{D}}\brak{\vec{C}^T\vec{C}} - \brak{\vec{D}^T\vec{C}}\brak{\vec{C}^T\vec{D}}
+\end{align}
+\end{equation}
+\begin{align}
+    \label{eq11}
+    \implies\norm{\vec{A}}^2\norm{\vec{C}}^2 - \brak{\vec{A}^T\vec{C}}^2 = \norm{\vec{D}}^2\norm{\vec{C}^2} - \brak{\vec{D}^T\vec{C}}^2 
+\end{align}
+Let $\vec{A}=\myvec{a1\\a2}$, $\vec{C}=\myvec{c_1\\0}$ and $\vec{D}=\myvec{d_1\\d_2}$ .Then equation \eqref{eq11} can be written as,
+\begin{align}
+    \label{lbo}
+    \brak{a_1^2+a_2^2}\brak{c_1^2}-\brak{a_1c_1}^2 = \brak{d_1^2+d_2^2}\brak{c_1^2} - \brak{d_1c_1}^2
+\end{align}
+\begin{align}
+    \implies a_2 = d_2
+\end{align}
+Now we have,
+\begin{align}
+    \label{eq14}
+    \brak{\vec{D}-\vec{A}}=\myvec{d_1-a_1\\d_2-a_2} = \myvec{d_1-a_1\\0}\\ 
+    \label{eq15}
+    \brak{\vec{C}-\vec{B}} = \myvec{c_1-0 \\ 0-0} = \myvec{c_1 \\ 0}
+\end{align}
+From equations \eqref{eq14} and \eqref{eq15}, we can say
+\begin{align}
+    \brak{\vec{D}-\vec{A}}=\frac{d_1-a_1}{c_1}\brak{\vec{C}-\vec{B}}\\
+    \label{lst}
+    \implies \brak{\vec{D}-\vec{A}}=k\brak{\vec{C}-\vec{B}}
+\end{align}
+where $k$ is a constant. From the equation \eqref{lst}, we can say that $AD \parallel BC$. Hence the two triangles $\triangle ABC$ and $\triangle DBC$ lie between the same parallels AD and BC
 \end{document}
