@@ -174,8 +174,8 @@ https://github.com/EE20MTECH14019/EE5609/tree/master/Assignment_3
 %
 \section{Problem}
 \item Triangles on the same base (or equal bases) and having equal areas lie between the same parallels.
-\section{Explanation}
-\item Consider $\vec{A},\vec{B},\vec{C}$ are three points of a triangle $\triangle ABC$, $\vec{D}, \vec{B}, \vec{C}$ are three points of another triangle $\triangle DBC$, both triangles having same base BC and $\vec{B}$ at origin, 
+\section{Solution}
+\item Consider $\vec{A},\vec{B},\vec{C}$ are three points of a triangle $\triangle ABC$, $\vec{D}, \vec{B}, \vec{C}$ are three points of another triangle $\triangle DBC$, both triangles having same base BC and $\vec{B}$ at origin, then
 \begin{align}
     \label{1}
     \vec{A}-\vec{B}=\vec{A}\\
@@ -184,46 +184,34 @@ https://github.com/EE20MTECH14019/EE5609/tree/master/Assignment_3
     \label{3}
     \vec{D}-\vec{B}=\vec{D}
 \end{align}
-\item The area of the triangle $\triangle ABC$ is,
+\renewcommand{\thefigure}{1}
+\begin{figure}[!ht]
+\centering
+\resizebox{\columnwidth}{!}{\input{Triangles_equalarea.tex}}
+\caption{$\triangle ABC$ and $\triangle DBC$ with BC as common base}
+\label{fig:1.2}
+\end{figure}
+The area of the triangle $\triangle ABC$ is,
 \begin{align}
     \label{4}
     Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{A} - \vec{B}} \times \brak{\vec{C} - \vec{B}}}
 \end{align}
-\item Substituting \eqref{1} and \eqref{2} in \eqref{4}, 
+Substituting \eqref{1} and \eqref{2} in \eqref{4}, 
 \begin{align}
     \label{ABC}
     \implies Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{A} \times \vec{C}}}
 \end{align}
-% figure
-\begin{figure}[!ht] \label{fig:triangle_abc}
-\centering
-\begin{tikzpicture}
-\draw (-2,0) -- (6,0); 
-\draw (-2,4) -- (6,4);
-\filldraw[black] (0,0) circle (2pt) node[anchor=north] {$B (0,0)$};
-\filldraw[black] (2,4) circle (2pt) node[anchor=south] {$A (a_1,a_2)$};
-\filldraw[black] (4,0) circle (2pt) node[anchor=north] {$C (c_1,c_2)$};
-\filldraw[black] (5,4) circle (2pt) node[anchor=south] {$D (d_1,d_2)$};
-\draw[black,thick] (0,0) -- (2,4);
-\draw[black,thick] (4,0) -- (2,4);
-\draw[black,thick] (0,0) -- (5,4);
-\draw[black,thick] (4,0) -- (5,4);
-\draw[black] (4,0) -- (0,0);
-\end{tikzpicture}
-\caption{$\triangle ABC$ and $\triangle DBC$ with BC as common base}
-\label{fig:solutions/1/2/two}
-\end{figure}
-\item The area of the triangle $\triangle DBC$ is,
+The area of the triangle $\triangle DBC$ is,
 \begin{align}
     \label{5}
     Area\brak{\triangle ABC} = \frac{1}{2}\norm{\brak{\vec{D} - \vec{B}} \times \brak{\vec{C} - \vec{B}}}
 \end{align}   
-\item Substituting \eqref{2} and \eqref{3} in \eqref{5}, 
+Substituting \eqref{2} and \eqref{3} in \eqref{5}, 
 \begin{align}
     \label{DBC}
     \implies Area\brak{\triangle DBC} = \frac{1}{2}\norm{\brak{\vec{D} \times \vec{C}}}
 \end{align}
-\item Given the area of $\triangle ABC$ is equal to the area $\triangle DBC$, from equations \eqref{ABC} and \eqref{DBC}
+Given the area of $\triangle ABC$ is equal to the area $\triangle DBC$, from equations \eqref{ABC} and \eqref{DBC}
 \begin{align}
     \label{modeq}
     \frac{1}{2}\norm{\brak{\vec{A} \times \vec{C}}} = \frac{1}{2}\norm{\brak{\vec{D} \times \vec{C}}}
