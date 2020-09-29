@@ -254,7 +254,11 @@ This document explains the concept of finding the representation of conics from 
 Download all latex-tikz codes from 
 %
 \begin{lstlisting}
-https://github.com/venkateshelangovan/IIT-Hyderabad-Assignments/tree/master/Assignment8_Matrix_Theory
+https://github.com/EE20MTECH14019/EE5609/tree/master/Assignment_5
+\end{lstlisting}
+and all python codes from 
+\begin{lstlisting}
+https://github.com/EE20MTECH14019/EE5609/tree/master/Assignment_5/codes
 \end{lstlisting}
 %
 \section{Problem}
@@ -265,10 +269,10 @@ What conics do the following equation represent? When possible, find the centres
 \end{align}
 \section{Solution }
 The second degree equation in general can be represented as
-\begin{align}\label{general}
-    ax^2+2bxy+cy^2+2dx+2ey+f=0
+\begin{align}
+    ax^2+2bxy+cy^2+2dx+2ey+f=0\label{general}
 \end{align}
-The equation eqref{general} in matrix form can be represented as 
+The equation \eqref{general} in matrix form can be represented as 
 \begin{align}
 %&\vec{x}^T\myvec{12 & \frac{-23}{2}\\\frac{-23}{2} & %10}\vec{x}+2\myvec{\frac{-25}{2} & 13}\vec{x}-14=0\label{given}
 \vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0\label{given}
@@ -277,7 +281,7 @@ where
 \begin{align}
 \vec{V}=\myvec{a&b\\b&c}=\myvec{2 & -36\\-36 & 23}\\
 \vec{u}=\myvec{d\\e}=\myvec{-2 \\ -1}\\
-f=-14
+f=-48
 \end{align}
 \begin{align}
     \det(\vec{V})=\begin{array}{|cc|} 2 & -36\\-36 & 23 \end{array}\\
@@ -294,13 +298,13 @@ V-\lambda\vec{I}
 \end{array}=0\\
 \implies \lambda^2-25\lambda-1250=0\label{eqroots}
 \end{align}
-The eigenvalues are the roots of equation \ref{eqroots} are given by 
+On solving the equation \eqref{eqroots}, the eigen values are given by 
 \begin{align}
     \lambda_1=50\label{eqeig1}\\
     \lambda_2=-25\label{eqeig2}
 \end{align}
-We can observe that for a hyperbola, $\lambda_1>0$ and  $\lambda_2<0$
-Consider the eigenvector \vec{p} is defined as 
+We can observe that for a hyperbola, $\lambda_1>0$ and  $\lambda_2<0$.
+Consider the eigenvector $\vec{p}=\myvec{v_1\\v_2}$ is defined as 
 \begin{align}
     \vec{V}\vec{p}&=\lambda\vec{p}\\
     \implies (\vec{V}-\lambda\vec{I})\vec{p}&=0\label{cheq}
@@ -312,17 +316,14 @@ For $\lambda_1=50$ ,
 By row reduction , 
 \begin{align}
     \myvec{-48&-36\\-36&-27}\\
-    \xleftrightarrow[R_1\leftarrow\frac{R_1}{-12}]
-    {R_2\leftarrow\frac{R_2}{-9}}
-    \myvec{4&3\\4&3}\label{eqs1}\\
+    \xleftrightarrow[R_1\leftarrow\frac{R_1}{-12}]{R_2\leftarrow\frac{R_2}{-9}}\myvec{4&3\\4&3}\\
     \xleftrightarrow[]{R_2\leftarrow R_2-R_1}
-    \myvec{4&3\\0&0}\lable{ref1}
+    \myvec{4&3\\0&0}\label{ref1}
 \end{align}
 Subsituting equation \eqref{ref1} in equation \eqref{cheq} we get
 \begin{align}
         \myvec{4&3\\0&0}\myvec{v_1\\v_2}=\myvec{0\\0}\label{eig1}
 \end{align}
-Where, $\vec{p}=\myvec{v_1\\v_2}$
 Eigen vector $\vec{p_1}$ is given by
 \begin{align}
     \vec{p_1}=\myvec{\frac{-3}{4}\\1}\label{ev1}
@@ -336,20 +337,19 @@ By row reduction ,
     \myvec{27&-36\\-36&48}\\
     \xleftrightarrow[R_1\leftarrow\frac{R_1}{9}]
     {R_2\leftarrow\frac{R_2}{-12}}
-    \myvec{3&-4\\3&-4}\label{eqs1}\\
+    \myvec{3&-4\\3&-4}\\
     \xleftrightarrow[]{R_2\leftarrow R_2-R_1}
-    \myvec{3&-4\\0&0}\lable{ref2}
+    \myvec{3&-4\\0&0}\label{ref2}
 \end{align} 
 Subsituting equation \eqref{ref2} in equation \eqref{cheq} we get 
 \begin{align}
     \myvec{3&-4\\0&0}\myvec{v_1\\v_2}=\myvec{0\\0}\label{eig2}
 \end{align}
-Where, $\vec{p}=\myvec{v_1\\v_2}$
 Eigen vector $\vec{p_2}$ is given by
 \begin{align}
         \vec{p_2}=\myvec{\frac{4}{3}\\1}\label{ev2}
 \end{align}
-By eigen decompostion $\vec{V}$ can be represented by
+By eigen decompostion, $\vec{V}$ can be represented by
 \begin{align}
     \vec{V}=\vec{P}\vec{D}\vec{P}^T\label{evd}
 \end{align}
@@ -358,26 +358,27 @@ where
         \vec{P}=\myvec{\vec{p_1} & \vec{p_2}}\label{eqp}\\
     \vec{D}=\myvec{\lambda_1 & 0 \\0 & \lambda_2}\label{eqD}
 \end{align}
-Substituting equations \eqref{ev1}, \eqref{ev2} in equation \ref{eqp} we get 
+Substituting equations \eqref{ev1}, \eqref{ev2} in equation \eqref{eqp} we get 
 \begin{align}
     \vec{P}=\myvec{\frac{-3}{4}&\frac{4}{3}\\1&1}\label{eqP}
 \end{align}
-Substituting equations \eqref{eqeig1}, \eqref{eqeig12} in \ref{eqD} we get
+Substituting equations \eqref{eqeig1}, \eqref{eqeig2} in \eqref{eqD} we get
 \begin{align}
        \vec{D}=\myvec{50 & 0\\0 & -25}\label{eqDD}
 \end{align}
 Centre of the hyperbola is given by 
 \begin{align}
-    \vec{c}=-\vec{V}^{-1}\vec{u}\\
+    \vec{c}=-\vec{V}^{-1}\vec{u}
+\end{align}
+\begin{align}
     \implies\vec{c}=-\myvec{\frac{-23}{1250}&\frac{-18}{625}\\\frac{-18}{625}&\frac{-1}{625}}\myvec{-2\\-1}\\
-    \implies\vec{c}=\myvec{\frac{23}{1250}&\frac{18}{625}\\\frac{18}{625}&\frac{1}{625}}\myvec{-2\\-1}\\
-    \implies\vec{c}&=\myvec{\frac{-41}{625}\\\frac{-37}{625}}
+    \implies\vec{c}=\myvec{\frac{-41}{625}\\\frac{-37}{625}}
 \end{align}
 Since,
 \begin{align}
     \vec{u}^T\vec{V}^{-1}\vec{u}-f = \frac{-30119}{625}<0\label{cond}
 \end{align} 
-We swap the semi-major and semi-minor axes and respective are given by
+We swap the semi-major and semi-minor axes and the respective are given by
 \begin{align}
 axes=
 \begin{cases}
@@ -389,7 +390,15 @@ Calculating the axes, we get
 \sqrt{\frac{\vec{u}^T\vec{V}^{-1}\vec{u}-f}{\lambda_2}}=1.388\\
 \sqrt{\frac{f-\vec{u}^T\vec{V}^{-1}\vec{u}}{\lambda_1}}=0.981
 \end{align}
-Now \eqref{given} can be written as,
+The figure \ref{Fig :1} verifies the given equation \eqref{given} as hyperbola with centre $\myvec{\frac{-41}{625}\\\frac{-37}{625}}$
+\renewcommand{\thefigure}{1}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{Hyperbola.png}
+    \caption{Hyperbola when origin is shifted}
+    \label{Fig :1}
+\end{figure}
+\item  Now \eqref{given} can be written as,
 \begin{align}
     \vec{y}^T\vec{D}\vec{y}=\vec{u}^T\vec{V}^{-1}\vec{u}-f\label{fi}
 \end{align}
@@ -409,12 +418,4 @@ Subsituting the eqauations \eqref{cond}, \eqref{eqDD} in equation \eqref{fi}
 \begin{align}
     \vec{y}^T\myvec{50&0\\0&-25}\vec{y}=\frac{-30119}{625}
 \end{align}
-\renewcommand{\thefigure}{1}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\columnwidth]{Assignment 8.png}
-    \caption{Hyperbola when origin is shifted}
-    \label{Fig :1}
-\end{figure}
-The figure \ref{Fig :1} verifies the given equation \eqref{given} as hyperbola with centre $\myvec{\frac{-41}{625}\\\frac{-37}{625}}$
 \end{document}
