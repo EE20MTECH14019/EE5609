@@ -1,0 +1,217 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+
+\singlespacing
+\usepackage[cmex10]{amsmath}
+
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{caption}
+%\usepackage[font=bf,labelfont=bf]{caption}
+
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+
+
+\DeclareMathOperator*{\Res}{Res}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+\numberwithin{table}{section}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+\begin{document}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\numberwithin{equation}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\renewcommand{\thefigure}{\theproblem}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 13}
+\author{Yenigalla Samyuktha\\EE20MTECH14019}
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{1}
+\setlength{\tabcolsep}{20pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{abstract}
+This document explains a proof in linear transformations.
+\end{abstract}
+Download all latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/EE20MTECH14019/EE5609/tree/master/Assignment_13
+\end{lstlisting}
+%
+\section{Problem}
+Let $\vec{A}$ be an $m\times n$ matrix with real entries. Prove that $\vec{A}=\vec{0}$ is and only if $tr\brak{\vec{A}^T\vec{A}}=0$.
+\section{Solution}
+The proof is given in the table \ref{table:2} and the properties used for the proof are listed in the table \ref{table:1}
+\renewcommand{\thetable}{1}
+\begin{table*}[ht!]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{
+\textbf{Properties Used}}\\
+\hline
+SVD of matrix $\vec{A}$ & $\vec{A}=\vec{U}\vec{\Sigma}\vec{V}^T$\\[0.5ex]
+\hline
+$\vec{U}$ is unitary & $\vec{U}^T\vec{U}=\vec{I}$\\[0.5ex] 
+\hline
+$\vec{V}$ is unitary & $\vec{V}^T\vec{V}=\vec{I}$\\[0.5ex] 
+\hline
+$\vec{\Sigma}$ is diagonal & $\vec{\Sigma}^T\vec{\Sigma}=\vec{\Sigma}^2$\\[0.5ex] 
+\hline
+Cyclic property & $tr\brak{\vec{ABC}}=tr\brak{\vec{CAB}}$\\[0.5ex] 
+\hline
+$Rank\brak{\vec{A}}$ & $Rank\brak{\vec{A}}=\# \text{non-zero singular values}$\\[0.5ex] 
+\hline
+\end{tabular}
+\caption{Properties}
+\label{table:1}
+\end{center}
+\vspace{-0.5cm}
+\end{table*}
+\renewcommand{\thetable}{2}
+\begin{table*}[ht!]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Statement} & \textbf{Proof} \\[0.5ex]
+\hline
+$tr\brak{\vec{A}^T\vec{A}}=0 \implies \vec{A}=\vec{0}$ & 
+ \parbox{10cm}{\begin{align}
+    tr\brak{\vec{A}^T\vec{A}}=tr\brak{\vec{V}\vec{\Sigma}^T\vec{U}^T\vec{U}\vec{\Sigma}\vec{V}^T}\\
+	=tr\brak{\vec{V}\vec{\Sigma}^T\vec{\Sigma}\vec{V}^T}\\
+	=tr\brak{\vec{V}\vec{\Sigma}^2\vec{V}^T}\\
+	=tr\brak{\vec{V}^T\vec{V}\vec{\Sigma}^2}\\
+	=tr\brak{\vec{\Sigma}^2}\\
+	=\sum\limits_{i=1}^r \sigma_{i}^2 \\ 
+	 tr\brak{\vec{A}^T\vec{A}}=0 \\
+	\implies \sum\limits_{i=1}^r \sigma_{i}^2=0 \; \forall i=1,2,\dots r\\
+	\implies \sigma_i=0 \; \forall i=1,2,\dots r \\
+	\therefore Rank\brak{\vec{A}}=\# \text{non-zero singular values}=0\\
+	\implies \vec{A}=\vec{0}
+\end{align}}
+\\ [0.5ex] 
+\hline
+$\vec{A}=\vec{0} \implies  tr\brak{\vec{A}^T\vec{A}}=0$
+& \parbox{10cm}{\begin{align}
+    \vec{A}=\vec{0}\\
+    \implies \vec{A}^T\vec{A}=\vec{0}\\
+    \implies tr\brak{\vec{A}^T\vec{A}}=0
+\end{align}}
+\\ [0.5ex] 
+\hline
+\end{tabular}
+\caption{Proofs}
+\label{table:2}
+\end{center}
+\vspace{-0.5cm}
+\end{table*}
+\end{document}
