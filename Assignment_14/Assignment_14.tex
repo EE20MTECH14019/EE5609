@@ -1,0 +1,260 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+
+\singlespacing
+\usepackage[cmex10]{amsmath}
+
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{caption}
+%\usepackage[font=bf,labelfont=bf]{caption}
+
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+
+
+\DeclareMathOperator*{\Res}{Res}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+\numberwithin{table}{section}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+\begin{document}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\numberwithin{equation}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\renewcommand{\thefigure}{\theproblem}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 14}
+\author{Yenigalla Samyuktha\\EE20MTECH14019}
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{1}
+\setlength{\tabcolsep}{20pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{abstract}
+This document explains a linear transmormation on polynomials.
+\end{abstract}
+Download all latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/EE20MTECH14019/EE5609/tree/master/Assignment_14
+\end{lstlisting}
+%
+\section{Problem}
+Let $\mathbb{F}$ be a subfield of complex numbers and let T be the transformation on $\mathbb{F}\brak{x}$ defined by
+\begin{align}
+T\brak{\sum \limits_{i=0}^n c_i x^i}=\sum \limits_{i=0}^n \frac{c_i}{i+1} x^{i+1}\label{q}
+\end{align}
+Show that T is a non-singular linear operator on $\mathbb{F}\sbrak{x}$. Also show that T is not invertible.
+\section{Solution}
+The transformation T does integral of a polynomial. Table \ref{table:2} provides proof that the transformation T is a linear operator and non-singular. Table \ref{table:3} provides proof that T is not invertible, however there exists a left inverse. The parameters used in the proof are listed in the table \ref{table:1}.
+\renewcommand{\thetable}{1}
+\begin{table*}[ht!]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{PARAMETER} & \textbf{DESCRIPTION}\\[0.5ex]
+\hline
+$\mathbb{F}$ & Field of complex numbers\\[0.5ex]
+\hline
+$\mathbb{F}^{n+1}$ & Vector space defined on the field $\mathbb{F}$\\[0.5ex]
+\hline
+$\mathbb{F}\sbrak{x}$ & Subspce of $\mathbb{F}^{n+1}$ \\[0.5ex] 
+\hline
+$\cbrak{1,x,x^2,x^3,\hdots,x^{n+1}}$ & Basis for $\mathbb{F}\sbrak{x}$ \\[0.5ex] 
+\hline
+$T\colon \mathbb{F}\sbrak{x} \rightarrow \mathbb{F}\sbrak{x}$ & Transformation T\\[0.5ex] 
+\hline
+$\mathit{f}=\sum \limits_{i=0}^n c_i x^i$ & Polynomial $\mathit{f} \in \mathbb{F}\sbrak{x}$\\[0.5ex] 
+\hline
+$\mathit{f^\prime}=\sum \limits_{i=0}^n c^\prime_i x^i$ & Polynomial $\mathit{f^\prime} \in \mathbb{F}\sbrak{x}$\\[0.5ex] 
+\hline
+$c_i,c^\prime_i \; \forall i=0,2,\hdots n$ & Scalars in $\mathbb{F}$ and coefficients of polynomials $\mathit{f}$ and $\mathit{f^\prime}$\\[0.5ex] 
+\hline
+$\vec{M}_T$ & Transformation matrix for T\\[0.5ex] 
+\hline
+$N\brak{T}$ & Null Space of T\\[0.5ex] 
+\hline
+\end{tabular}
+\caption{Parameters}
+\label{table:1}
+\end{center}
+\vspace{-0.5cm}
+\end{table*}
+
+\renewcommand{\thetable}{2}
+\begin{table*}[ht!]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Statement} & \textbf{Derivation} \\[0.5ex]
+\hline
+$\mathit{f}=\sum \limits_{i=0}^n c_i x^i$ & $\mathit{f}=\myvec{c_0&c_1&c_2&\cdots&c_n}^T_{\brak{n+1}\times1}$
+\\ [0.5ex] 
+\hline
+$T\sbrak{\mathit{f}}=\vec{M}_T\mathit{f}$ & $T\sbrak{\mathit{f}}=
+\myvec{0&0&0&\cdots&0\\1&0&0&\cdots&0\\0&\frac{1}{2}&0&\cdots&0\\0&0&\frac{1}{3}&\cdots&0\\\vdots&\vdots&\vdots&\cdots&\vdots\\0&0&0&\cdots&\frac{1}{n+1}}_{\brak{n+2}\times\brak{n+1}}
+\myvec{c_0\\c_1\\c_2\\\vdots\\c_n}_{\brak{n+1}\times1}
+=\myvec{0\\c_0\\\frac{c_1}{2}\\\frac{c_2}{3}\\\vdots\\\frac{c_n}{n+1}}$
+\\ [0.5ex] 
+\hline
+T is a linear operator & 
+\parbox{10cm}{\begin{align}
+T\sbrak{\alpha\mathit{f}+\mathit{f^\prime}}\\
+=\vec{M}_T\brak{\alpha\mathit{f}+\mathit{f^\prime}}\\
+=\myvec{0&0&0&\cdots&0\\1&0&0&\cdots&0\\0&\frac{1}{2}&0&\cdots&0\\0&0&\frac{1}{3}&\cdots&0\\\vdots&\vdots&\vdots&\cdots&\vdots\\0&0&0&\cdots&\frac{1}{n+1}}
+\myvec{\alpha c_0+c_0^\prime\\\alpha c_1+c_1^\prime\\\alpha c_2+c_2^\prime\\\vdots\\\alpha c_n+c_n^\prime}\\
+=\myvec{0\\\alpha c_0+c_0^\prime\\\frac{\alpha c_1+c_1^\prime}{2}\\\frac{\alpha c_2+c_2^\prime}{3}\\\vdots\\\frac{\alpha c_n+c_n^\prime}{n+1}}
+=\alpha\myvec{0\\c_0\\\frac{c_1}{2}\\\frac{c_2}{3}\\\vdots\\\frac{c_n}{n+1}}+\myvec{0\\c_0^\prime\\\frac{c_1^\prime}{2}\\\frac{c_2^\prime}{3}\\\vdots\\\frac{c_n^\prime}{n+1}}\\
+=\alpha T\sbrak{\mathit{f}}+T\sbrak{\mathit{f^\prime}}\\
+\therefore T\sbrak{\alpha\mathit{f}+\mathit{f^\prime}}=\alpha T\sbrak{\mathit{f}}+T\sbrak{\mathit{f^\prime}}
+\end{align}}
+\\ [0.5ex] 
+\hline
+T is non-singular & \parbox{10cm}{\begin{align}
+T\sbrak{\mathit{f}}=0\\
+\implies \vec{M}_T\mathit{f}=\vec{0}
+\implies \mathit{f}=0 \because \vec{M}_T \ne \vec{0}\\
+\implies N\brak{T}=\cbrak{0}
+\end{align}}
+\\ [0.5ex] 
+\hline
+\end{tabular}
+\caption{Proof for Non-Singular and linear transformation T}
+\label{table:2}
+\end{center}
+\vspace{-0.5cm}
+\end{table*}
+
+\renewcommand{\thetable}{3}
+\begin{table*}[ht!]
+\begin{center}
+\begin{tabular}{|p{4.7cm}|p{10cm}|}
+\hline
+\textbf{Statement} & \textbf{Derivation} \\[0.5ex]
+\hline
+T is not invertible & As $\vec{M}_T$ is a non-square matrix with dimensions $\brak{n+2}\times\brak{n+1}$, the transformation T is not invertible
+\\ [0.5ex] 
+\hline
+$\vec{M}_D$ is left inverse of $\vec{M}_T$ 
+& \parbox{10cm}{\begin{align}
+\vec{M}_D\vec{M}_T=\vec{I}_{n+1}\\
+\implies \vec{M}_D=\myvec{0&1&0&0&\cdots&0\\0&0&2&0&\cdots&0\\0&0&0&3&\cdots&0\\\vdots&\vdots&\vdots&\vdots&\cdots&\vdots\\0&0&0&0&\cdots&n+1}
+\end{align}}
+\\ [0.5ex] 
+\hline
+\end{tabular}
+\caption{Non-Invertibility of transformation T}
+\label{table:3}
+\end{center}
+\vspace{-0.5cm}
+\end{table*}
+
+\end{document}
