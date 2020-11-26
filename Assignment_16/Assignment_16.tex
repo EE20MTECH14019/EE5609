@@ -156,13 +156,15 @@ From the characteristic polynomial,
 \end{align}
 We get the eigen values of the $6\times6$ complex matrix as,
 \begin{align}
-\lambda_i=\cbrak{-2,-2,-2,-2,1,1}\label{eq:eig}
+\lambda_i=\cbrak{-2,-2,-2,-2,1,1}\label{eq:eig}\\
+\text{for } \lambda=-2, A_M=4\\
+\text{for } \lambda=1, A_M=2
 \end{align}
 The minimal polynomial for a matrix with characteristic polynomial must have both $\brak{x+2}$ and $\brak{x-1}$ as factors and it must divide \eqref{eq:p}. Hence the minimal polynomial will be of the form 
 \begin{align}
 p=\brak{x+2}^a\brak{x-1}^b \; ,a\le 4,b\le2
 \end{align}
-So, there are 8 different possibilities for a minimal polynomial. Let us note that one minimal polynomial may correspond to more than one Jordan forms. The possible Jordan blocks associated with the eigen values -2 and 1 are given in the Table \ref{table:1}. From Table \ref{table:1} , we can say that there are $5\times2=10$ possible Jordan forms.
+So, there are 8 different possibilities for a minimal polynomial. Let us note that one minimal polynomial may correspond to more than one Jordan forms. The possible Jordan blocks associated with the eigen values -2 and 1 are given in the Table \ref{table:2}. From Table \ref{table:2} , we can say that there are $5\times2=10$ possible Jordan forms.
 For example, the Jordan forms corresponding to minimal polynomial $p=\brak{x+2}^2\brak{x-1}$ built from the Jordan blocks can be,
 \begin{align}
 \vec{J}=\myvec{-2&1&0&0&0&0\\0&-2&0&0&0&0\\0&0&-2&1&0&0\\0&0&0&-2&0&0\\0&0&0&0&1&0\\0&0&0&0&0&1}
@@ -171,29 +173,54 @@ and
 \begin{align}
 \vec{J}=\myvec{-2&1&0&0&0&0\\0&-2&0&0&0&0\\0&0&-2&0&0&0\\0&0&0&-2&0&0\\0&0&0&0&1&0\\0&0&0&0&0&1}
 \end{align}
-\renewcommand{\thetable}{1}
+\begin{table}[ht!]
+\begin{center}
+\begin{tabular}{|p{2cm}|p{5.5cm}|}
+\hline
+\textbf{Parameter} & \textbf{Description}
+\\ [0.5ex] 
+\hline
+$A_M$ & Algebraic multiplicity of $\lambda$ in the characteristic polynomial, also equal to the size of Jordan block for that eigen value
+\\ [0.5ex] 
+\hline
+$G_M$ & Geometric multiplicity determines the number of Jordan sub-blocks in a Jordan block for $\lambda$.
+\\ [0.5ex] 
+\hline
+$\vec{J}_{\brak{x-\lambda}^k}$ & Jordan block corresponding to the eigen value $\lambda$ and k is the multiplicity of $\lambda$ in the minimal polynomial determines size of largest Jordan sub-block.
+\\ [0.5ex] 
+\hline
+\end{tabular}
+\caption{Parameters}
+\label{table:1}
+\end{center}
+\vspace{-0.5cm}
+\end{table}
+\renewcommand{\thetable}{2}
 \begin{table*}[ht!]
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
 \textbf{Factor} & \textbf{Possible Jordan blocks} \\[0.5ex]
 \hline
- $\brak{x+2}$ & \parbox{10cm}{\begin{align}
-\myvec{-2&0&0&0\\0&-2&0&0\\0&0&-2&0\\0&0&0&-2}\\
-\myvec{-2&1&0&0\\0&-2&0&0\\0&0&-2&0\\0&0&0&-2}\\
-\myvec{-2&1&0&0\\0&-2&0&0\\0&0&-2&1\\0&0&0&-2},\myvec{-2&1&0&0\\0&-2&1&0\\0&0&-2&0\\0&0&0&-2}\\
-\myvec{-2&1&0&0\\0&-2&1&0\\0&0&-2&1\\0&0&0&-2}
+ $\brak{x+2}$ & 
+\parbox{10cm}{\begin{align}
+\vec{J}_{\brak{x+2}}=\myvec{-2&0&0&0\\0&-2&0&0\\0&0&-2&0\\0&0&0&-2} \quad \brak{G_M=4}\\
+\vec{J}_{\brak{x+2}^2}=\myvec{-2&1&0&0\\0&-2&0&0\\0&0&-2&0\\0&0&0&-2}\quad \brak{G_M=3}\\
+\vec{J}_{\brak{x+2}^2}=\myvec{-2&1&0&0\\0&-2&0&0\\0&0&-2&1\\0&0&0&-2}\quad \brak{G_M=2}\\
+\vec{J}_{\brak{x+2}^3}=\myvec{-2&1&0&0\\0&-2&1&0\\0&0&-2&0\\0&0&0&-2}\quad \brak{G_M=2}\\
+\vec{J}_{\brak{x+2}^4}=\myvec{-2&1&0&0\\0&-2&1&0\\0&0&-2&1\\0&0&0&-2}\quad \brak{G_M=1}
 \end{align}}
 \\ [0.5ex] 
 \hline
 $\brak{x-1}$ & \parbox{10cm}{\begin{align}
-\myvec{1&0\\0&1}\\\myvec{1&1\\0&1}
+\vec{J}_{\brak{x-1}}=\myvec{1&0\\0&1} \quad \quad \brak{G_M=2}\\
+\vec{J}_{\brak{x-1}^2}=\myvec{1&1\\0&1} \quad \quad \brak{G_M=1}
 \end{align}}
 \\ [0.5ex] 
 \hline
 \end{tabular}
 \caption{Possible Jordan Blocks}
-\label{table:1}
+\label{table:2}
 \end{center}
 \vspace{-0.5cm}
 \end{table*}
